@@ -16,6 +16,13 @@ const useAnimation = (
   const { state, dispatch } = useContext(Context)
   const history = useHistory()
 
+  const startRedirecting = () => {
+    if (state.isAnimating) {
+      dispatch({ type: 'ANIMATION_FINISH' })
+      history.push(state.path)
+    }
+  }
+
   useEffect(() => {
     enterAnimation()
     return cleanup
@@ -25,11 +32,12 @@ const useAnimation = (
     if (state.isAnimating) {
       leaveAnimation()
       setTimeout(() => {
-        dispatch({ type: 'ANIMATION_FINISH' })
-        history.push(state.path)
+        startRedirecting()
       }, transition)
     }
   }, [state.isAnimating])
+
+  return startRedirecting;
 }
 
 
