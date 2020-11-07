@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './styles.module.css'
+import React, { useState } from 'react'
 
 export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+  const [count, setCount] = useState(0)
+  return <div onClick={() => setCount((prev) => prev + 1)} >Example Component: {text} Count: {count}</div>
 }
