@@ -11,7 +11,9 @@ npm install --save react-use-animation
 ```
 
 ## Usage
+
 Wrap your entire app with AnimationProvider component:
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -29,6 +31,7 @@ document.getElementById('root'))
 
 ```
 Use Link components to navigate (they behave just like normal react-router-dom links):
+
 ```jsx
 import React from 'react'
 import { Link } from 'react-use-animation';
@@ -46,11 +49,13 @@ const Navigation = () => {
 
 ```
 Inside routes you want to be animated, use "useAnimation" hook:
+
 ```jsx
 import React from 'react'
 import useAnimation from 'react-use-animation';
 
 const PageA = () => {
+
   useAnimation(function animateEnterance() {
   // your enterance animation code
   },
@@ -61,6 +66,7 @@ const PageA = () => {
   , 
   callback  //optional, you can remove listeners / intervals / timeouts here
   )
+
   return (
     <div>
      PAGE A 
@@ -70,6 +76,7 @@ const PageA = () => {
 ```
 
 Example with GSAP animation library: 
+
 ```jsx
 import React from 'react'
 import useAnimation from 'react-use-animation';
@@ -91,6 +98,7 @@ const PageA = () => {
     window.removeEventListener('mousemove', listenerFunction)
   }
   )
+
   return (
     <div className='pageA'>
      PAGE A 
@@ -100,6 +108,7 @@ const PageA = () => {
 ```
 
 Optional, using return function from useAnimation hook: 
+
 ```jsx
 import React from 'react'
 import useAnimation from 'react-use-animation';
@@ -127,6 +136,8 @@ const PageA = () => {
     </div>
   )
 }
+```
+
 ## License
 
 MIT © [bartlomiejwiejak](https://github.com/bartlomiejwiejak)
