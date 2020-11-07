@@ -1,7 +1,7 @@
 {
   "name": "react-use-animation-test",
   "version": "1.0.0",
-  "description": "Testing react hooks",
+  "description": "Simple way to animate page transitions using react-router-dom.",
   "author": "bartlomiejwiejak",
   "license": "MIT",
   "repository": "react-use-animation",
