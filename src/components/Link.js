@@ -4,11 +4,14 @@ import React, { useContext } from 'react'
 import { Context } from './AnimationProvider'
 import { useLocation } from 'react-router-dom'
 
-const Link = ({ children, to, ...otherProps }) => {
+const Link = ({ children, to, onClick, ...otherProps }) => {
   const { state, dispatch } = useContext(Context)
   const location = useLocation()
 
   function startRedirecting() {
+    if (typeof onClick === 'function') {
+      onClick();
+    }
     if (state.isAnimating || location.pathname === to) return
     dispatch({ type: 'ROUTE_TO', payload: to })
   }
@@ -16,11 +19,10 @@ const Link = ({ children, to, ...otherProps }) => {
   return (
     <div
       onClick={startRedirecting}
-      otherProps
-      style={{ display: 'inline-block' }}
+      {...otherProps}
     >
-      {children}
-    </div>
+      { children}
+    </div >
   )
 }
 
